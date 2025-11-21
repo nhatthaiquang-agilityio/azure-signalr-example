@@ -4,7 +4,7 @@ resource "azurerm_api_management" "az_api_mng_svc" {
   resource_group_name = data.azurerm_resource_group.rg_signalr.name
   publisher_name      = "Example Publisher"
   publisher_email     = "nhat.thaiquang@asnet.com.vn"
-  sku_name            = "Standard_1"
+  sku_name            = "Standard_2"
   tags = {
     Environment = var.environment
   }
