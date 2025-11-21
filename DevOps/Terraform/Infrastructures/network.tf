@@ -43,3 +43,19 @@ resource "azurerm_subnet" "az_signalr_subnet_pe" {
   virtual_network_name = azurerm_virtual_network.az_signalr_network.name
   address_prefixes     = ["10.0.2.0/24"]
 }
+
+# Subnet 3: API Management
+resource "azurerm_subnet" "az_apim_subnet" {
+  name                 = "subnet-apim-az-signalr"
+  resource_group_name  = data.azurerm_resource_group.rg_signalr.name
+  virtual_network_name = azurerm_virtual_network.az_signalr_network.name
+  address_prefixes     = ["10.0.3.0/24"]
+
+  # Required service endpoints for API Management
+  service_endpoints = [
+    "Microsoft.Storage",
+    "Microsoft.KeyVault",
+    "Microsoft.EventHub",
+    "Microsoft.ServiceBus"
+  ]
+}

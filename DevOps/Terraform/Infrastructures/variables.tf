@@ -42,7 +42,7 @@ variable "pv_svc_connection_signalr" {
 
 variable "pv_dns_zone_group_signalr" {
   type = string
-  default = ""
+  default = "signalr-dns-zone-group"
 }
 
 variable "network_interface_signalr" {

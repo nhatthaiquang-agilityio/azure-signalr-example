@@ -53,4 +53,32 @@ custom_network_interface_name = var.network_interface_signalr
     subresource_name              = "signalr"
     member_name                   = "signalr"
   }
+
+  private_dns_zone_group {
+    name = var.pv_dns_zone_group_signalr
+    private_dns_zone_ids = [azurerm_private_dns_zone.signalr_dns.id]
+  }
+}
+
+# Private DNS Zone for SignalR
+resource "azurerm_private_dns_zone" "signalr_dns" {
+  name                = "privatelink.service.signalr.net"
+  resource_group_name = data.azurerm_resource_group.rg_signalr.name
+
+  tags = merge(var.tags, {
+    environment = var.environment
+  })
+}
+
+# Link DNS zone to VNet
+resource "azurerm_private_dns_zone_virtual_network_link" "signalr_dns_link" {
+  name                  = "signalr-dns-link"
+  resource_group_name   = data.azurerm_resource_group.rg_signalr.name
+  private_dns_zone_name = azurerm_private_dns_zone.signalr_dns.name
+  virtual_network_id    = azurerm_virtual_network.az_signalr_network.id
+  registration_enabled  = false
+
+  tags = merge(var.tags, {
+    environment = var.environment
+  })
 }
