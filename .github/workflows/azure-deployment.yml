@@ -16,12 +16,6 @@ env:
   TERRAFORM_RESOURCE_GROUP_NAME: 'RG-Example'
 
 jobs:
-  build:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v4
-
   setup-infrastructure-on-test:
     runs-on: windows-latest
     environment: test
