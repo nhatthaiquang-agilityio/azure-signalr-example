@@ -22,13 +22,6 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
 
-      - uses: nhatthaiquang-agilityio/Terraform-CI-CD/.github/actions/build-package-dotnet@main
-        id: build-package
-        with:
-          solution-path: ${{ env.SOLUTION_PATH }}
-          build-target-path: ${{ env.PROJECT_TARGET_PATH }}
-          build-name: ${{ env.BUILD_NAME }}
-
   setup-infrastructure-on-test:
     runs-on: windows-latest
     environment: test
