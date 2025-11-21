@@ -44,3 +44,8 @@ variable "pv_dns_zone_group_signalr" {
   type = string
   default = ""
 }
+
+variable "network_interface_signalr" {
+  type = string
+  default = ""
+}

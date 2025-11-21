@@ -37,7 +37,7 @@ resource "azurerm_private_endpoint" "pv_endpoint_signalr" {
     environment = var.environment
   })
 
-	custom_network_interface_name = azurerm_subnet.az_signalr_subnet_int.id
+custom_network_interface_name = var.network_interface_signalr
 
   private_service_connection {
     name                           = var.pv_svc_connection_signalr
