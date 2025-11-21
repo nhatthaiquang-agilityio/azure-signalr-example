@@ -32,8 +32,7 @@ resource "azurerm_subnet" "az_signalr_subnet_int" {
     "Microsoft.KeyVault",
     "Microsoft.ServiceBus",
     "Microsoft.Storage",
-    "Microsoft.Web",
-    "Microsoft.SignalRService"
+    "Microsoft.Web"
   ]
 }
 
