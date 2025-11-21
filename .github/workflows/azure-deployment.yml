@@ -2,7 +2,7 @@ name: Deploy Azure SignalR Private Endpoint
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - 'DevOps/**'
       - '.github/workflows/azure-deployment.yml'
