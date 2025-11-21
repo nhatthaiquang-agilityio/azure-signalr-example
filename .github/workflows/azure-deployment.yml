@@ -13,7 +13,7 @@ env:
   TERRAFORM_WORKING_DIRECTORY: './DevOps/Terraform/Infrastructures'
   TERRAFORM_STORAGE_ACCOUNT: 'tfstateexampleazfunc'
   TERRAFORM_CONTAINER_NAME: 'tfstatecontainer'
-  TERRAFORM_RESOURCE_GROUP_NAME: 'RG-Example'
+  TERRAFORM_RESOURCE_GROUP_NAME: 'rg-signal-example'
 
 jobs:
   setup-infrastructure-on-test:
