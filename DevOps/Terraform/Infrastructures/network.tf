@@ -1,21 +1,21 @@
 resource "azurerm_network_security_group" "az_signalr_network_sg" {
   name                = "example-security-group"
-  location            = data.azurerm_resource_group.rg.location
-  resource_group_name = data.azurerm_resource_group.rg.name
+  location            = data.azurerm_resource_group.rg_signalr.location
+  resource_group_name = data.azurerm_resource_group.rg_signalr.name
 }
 
 # Virtual Network
 resource "azurerm_virtual_network" "az_signalr_network" {
   name                = "az-signalr-vn-vnet"
   address_space       = ["10.0.0.0/16"]
-  location            = data.azurerm_resource_group.rg.location
-  resource_group_name = data.azurerm_resource_group.rg.name
+  location            = data.azurerm_resource_group.rg_signalr.location
+  resource_group_name = data.azurerm_resource_group.rg_signalr.name
 }
 
 # Subnet 1: internal
 resource "azurerm_subnet" "az_signalr_subnet_int" {
   name                 = "subnet-int-az-signalr"
-  resource_group_name  = data.azurerm_resource_group.rg.name
+  resource_group_name  = data.azurerm_resource_group.rg_signalr.name
   virtual_network_name = azurerm_virtual_network.az_signalr_network.name
   address_prefixes     = ["10.0.1.0/24"]
 
@@ -40,7 +40,7 @@ resource "azurerm_subnet" "az_signalr_subnet_int" {
 # Subnet 2: private Endpoint
 resource "azurerm_subnet" "az_signalr_subnet_pe" {
   name                 = "subnet-pe-az-signalr"
-  resource_group_name  = data.azurerm_resource_group.rg.name
+  resource_group_name  = data.azurerm_resource_group.rg_signalr.name
   virtual_network_name = azurerm_virtual_network.az_signalr_network.name
   address_prefixes     = ["10.0.2.0/24"]
 }
