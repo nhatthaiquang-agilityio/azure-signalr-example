@@ -17,6 +17,12 @@ resource "azurerm_api_management" "az_api_mng_svc" {
   }
 }
 
+# Associate the NSG with the API Management subnet
+resource "azurerm_subnet_network_security_group_association" "apim_nsg_association" {
+  subnet_id                 = azurerm_subnet.az_apim_subnet.id
+  network_security_group_id = azurerm_network_security_group.az_signalr_network_sg.id
+}
+
 resource "azurerm_api_management_api" "api" {
   name                = "${var.environment}-api"
   resource_group_name = data.azurerm_resource_group.rg_signalr.name

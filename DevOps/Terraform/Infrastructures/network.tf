@@ -50,6 +50,7 @@ resource "azurerm_subnet" "az_apim_subnet" {
   resource_group_name  = data.azurerm_resource_group.rg_signalr.name
   virtual_network_name = azurerm_virtual_network.az_signalr_network.name
   address_prefixes     = ["10.0.3.0/24"]
+  network_security_group_id = azurerm_network_security_group.az_signalr_network_sg.id
 
   # Required service endpoints for API Management
   service_endpoints = [
