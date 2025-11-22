@@ -30,9 +30,6 @@
     + Create a storage account and a container. It will be save terraform state file.
 ![Terraform State File](./Images/terraform-state-file.png)
 
-### Create GitHub Agent(Self-hosted Runner)
-    + Create Azure Virtual Machine(the same virtual network of Azure Function App)
-        - Install Azure CLI
-        - Install self-hosted runner
-
-![Install Self Hosted Runner](./Images/gh-agent-deployment.png)
+## Result
+### Azure SignalR
+![Azure SignalR](./Images/SignalR.png)
