@@ -5,6 +5,8 @@
 ### Features
     + An Azure Virtual Network and Private Endpoint
     + PrivateLink DNZ
+    + Azure SignalR
+    + API Management
     + Deployment with GitHub Actions
 
 ## Prerequisites
